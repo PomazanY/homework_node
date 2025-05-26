@@ -1,1 +1,3 @@
-console.log("My first Node.js project");
+import logMessage from "./simpleLogger/logger.js"
+
+logMessage('App starts');
