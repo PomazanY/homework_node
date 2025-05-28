@@ -7,8 +7,8 @@ emitter.on("message", (name, text)=>{
     
 })
 
-function sendMessage (name, text, emitterIntence){
-    emitterIntence.emit("message", name, text);
+function sendMessage (name, text, emitter){
+    emitter.emit("message", name, text);
 }
 
 sendMessage("Yulia", "Hi", emitter)
