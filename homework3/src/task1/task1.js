@@ -17,7 +17,6 @@ const result = await createFolder();
 const createdMessage = result ? "My folder created" : "Get new folder"
 console.log(createdMessage);
 
-
 // async function createIfNotExists(dataPath) {
 //   try {
 //     await fs.access(dataPath);
@@ -38,7 +37,6 @@ async function deleteFolder() {
         return false;
     }
 }
-
 const resultDelete = await deleteFolder();
 const resultDeleteMessage = resultDelete ? "successful delete" : "try again";
 console.log(resultDeleteMessage);
