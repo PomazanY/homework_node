@@ -9,7 +9,6 @@ const writeFile = async () => {
     catch (err) {
         console.error(err.message);
     }
-
 }
 writeFile()
 
