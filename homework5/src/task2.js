@@ -8,16 +8,17 @@ app.use(cors());
 
 const pathToError = path.resolve("src", "errors.log")
 
-app.use(async(req, res, next)=>{
-    try{
+app.use(async (req, res, next) => {
+    try {
         throw new Error("Test error for logging");
     }
-    catch(err){
+    catch (err) {
         console.log(err);
+        await fs.appendFile(pathToError, err.message)
+        res.status(500).setHeader("Content-Type", "text/plain").send("Internal Server Error")
     }
-    await fs.appendFile(pathToError, err.message)
-    res.status(500).setHeader("Content-Type", "text/plain").send("Internal Server Error")
+
     next()
 })
 
-app.listen(3100, ()=> console.log("Server running on port 3100"))
+app.listen(3100, () => console.log("Server running on port 3100"))
