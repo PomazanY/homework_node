@@ -11,24 +11,19 @@ const Chat = () => {
     const [messagesAll, setMessagesAll] = useState([]);
 
     const submitForm = (message) => {
-        // повідомлення від юзера обгортаємо в об'єкт
         const newMessage = { author: "User", text: message };
-        // одразу показати повідомлення юзера
+   
         setMessagesAll(prev => [...prev, newMessage]);
-        // надсилаємо тільки текст
+       
         socket.emit("message", message);
     };
 
     useEffect(() => {
 
-        // Усі вхідні повідомлення від сервера обгортаємо в об'єкт { author: "Server", text: message }
-
-        // Отримуємо привітання від сервера
         socket.on("welcome", (message) => {
             setMessagesAll(prev => [...prev, { author: "Server", text: message }]);
         });
 
-        // Отримуємо відповідь на повідомлення
         socket.on("reply", (message) => {
             setMessagesAll(prev => [...prev, { author: "Server", text: message }]);
         });
