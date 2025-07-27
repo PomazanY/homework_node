@@ -1,0 +1,16 @@
+.messagesBox {
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 200px;
+    width: 600px;
+    overflow-y: auto;
+    margin: 20px 0;
+}
+
+.messagesBox li {
+    margin-bottom: 8px;
+}
+
+.messagesBox li p strong {
+    color: #3366cc;
+}
